@@ -17,10 +17,13 @@ class TestPurchaseFlow(unittest.TestCase):
         self.postal_code = "123456"
 
         options = Options()
-        options.add_argument('--headless=new')
+        options.add_argument("--headless")
+        options.add_argument("--disable-gpu")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        options.add_argument("--window-size=1280,800")
         options.page_load_strategy = 'none'
         self.driver = webdriver.Chrome(options=options)
-        self.driver.set_window_size(width=1280, height=800)
         self.driver.implicitly_wait(10)
 
     def tearDown(self):
